@@ -4,6 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <filter>
+        <filter-name>ForeServletFilter</filter-name>
+        <filter-class>tmall.filter.ForeServletFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ForeServletFilter</filter-name>
+        <!--所有链接都要过滤-->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
         <filter-name>BackServletFilter</filter-name>
         <filter-class>tmall.filter.BackServletFilter</filter-class>
     </filter>
@@ -72,5 +83,15 @@
     <servlet-mapping>
         <servlet-name>OrderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ForeServlet</servlet-name>
+        <servlet-class>tmall.servlet.ForeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ForeServlet</servlet-name>
+        <url-pattern>/foreServlet</url-pattern>
     </servlet-mapping>
 </web-app>
